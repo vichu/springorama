@@ -1,0 +1,5 @@
+cloud.aws:
+  region.static: us-west-2
+  credentials:
+    accessKey: YOUR_ACCESS_KEY
+    secretKey: YOUR_SECRET_KEY

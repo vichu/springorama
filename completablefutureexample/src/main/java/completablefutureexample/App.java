@@ -25,7 +25,7 @@ public class App {
             System.out.println("Task not yet done...");
             Thread.sleep(100);
         }
-        System.out.println("The future is resolved. Value generated = "+future.get());
+        System.out.println("The future is resolved. Value generated = " + future.get());
         executorService.shutdown();
 
     }

@@ -92,8 +92,8 @@ public class CombiningCompletableFuture {
     try {
       Map<String, Object> myObjectMap = myObjectCompletableFuture.get(2, TimeUnit.SECONDS);
       System.out.println("\n------Compose and combine CompletableFutures----");
-      myObjectMap.entrySet().forEach(stringObjectEntry -> System.out
-          .println(stringObjectEntry.getKey() + " = " + stringObjectEntry.getValue().toString()));
+      myObjectMap.forEach((key, value) -> System.out
+              .println(key + " = " + value.toString()));
     } catch (InterruptedException | ExecutionException | TimeoutException e) {
       e.printStackTrace();
     }

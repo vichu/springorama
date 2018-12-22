@@ -11,11 +11,11 @@ import scala.concurrent.Future
 trait UserDatabaseService extends UserDbProvider {
 
   // Orchestrate your low level queries appropriately.
-  def createUser(uuid: UUID, firstName: String, lastName: String, email:String): Future[Boolean] =
+  def createUser(uuid: UUID, firstName: String, lastName: String, email:String): Future[Option[UUID]] =
     database.userByIdInstance.createUserById(uuid, firstName, lastName, email)
     .flatMap(_ => {
       database.userByFirstName.createUserByUserName(uuid, firstName, lastName, email)
-        .map(rs => if(rs.wasApplied) true else false)
+        .map(rs => if(rs.wasApplied) Some(uuid) else None)
     })
 
   def selectUserById(uuid: UUID): Future[Option[User]] = database.userByIdInstance.getUserById(uuid)

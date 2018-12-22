@@ -68,7 +68,7 @@ abstract class UserByFirstName extends Table[UserByFirstName, User] {
   def createUserByUserName(uuid: UUID, firstName: String, lastName: String, emailId: String): Future[ResultSet] = {
     insert
       .value(_.id, uuid)
-      .value(_.fName, fName)
+      .value(_.fName, firstName)
       .value(_.lName, lastName)
       .value(_.email, emailId)
       .future()

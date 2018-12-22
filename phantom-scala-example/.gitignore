@@ -68,6 +68,3 @@ project/plugins/project/
 ### Scala template
 *.class
 *.log
-build.sbt
-project/build.properties
-src/
